@@ -10,6 +10,8 @@ let constraint;
 let mConstraint;
 let mirrorFixed = false;
 let glass;
+let shelf;
+let stage;
 
 function setup() {
     let canvas = createCanvas(1280, 720)
@@ -17,8 +19,10 @@ function setup() {
     rectMode(CENTER)
     engine = Engine.create();
     world = engine.world;
-    mirror = new Mirror(200, 200, 20, 80, true)
-    glass = new Glass(1000, 200, 20, 80, true)
+    mirror = new Mirror(200, 200, 20, 100, true)
+    glass = new Glass(1000, 200, 40, 100, true)
+    shelf = new Screen(width / 2, 200, 1200, 250)
+    stage = new Screen(width / 2, 550, 1200, 270)
 
     let canvasMouse = Mouse.create(canvas.elt)
     canvasMouse.pixelRatio = pixelDensity();
@@ -35,8 +39,11 @@ function setup() {
 
 
 function draw() {
+
     Engine.update(engine)
     background(102)
+    shelf.show()
+    stage.show()
 
     mirror.show()
     glass.show()
@@ -45,14 +52,15 @@ function draw() {
     })
 
 
-    // console.log(mConstraint)
+    console.log(mirror.body)
 
 }
 
 
 function mouseDragged() {
+
+
     if (dist(mirror.body.position.x, mirror.body.position.y, mouseX, mouseY) < 70) {
-        console.log('hi')
         Body.setPosition(mirror.body, { x: mouseX, y: mouseY })
     }
     if (dist(glass.body.position.x, glass.body.position.y, mouseX, mouseY) < 70) {
@@ -75,20 +83,30 @@ function mouseDragged() {
 
 function mouseReleased() {
     if (mConstraint.body === mirror.body) {
-        if (mouseY < 300) {
+        if (mouseY < 360) {
             Body.setPosition(mirror.body, { x: 200, y: 200 })
+
         } else {
-            Body.setPosition(mirror.body, { x: width / 2, y: 500 })
+            if (glass.body.position.y > 360) {
+                Body.setPosition(glass.body, { x: 1000, y: 200 })
+
+            }
+            Body.setPosition(mirror.body, { x: width / 2, y: 550 })
         }
     }
     if (mConstraint.body === glass.body) {
-        if (mouseY < 300) {
+        if (mouseY < 360) {
             Body.setPosition(glass.body, { x: 1000, y: 200 })
         } else {
-            Body.setPosition(glass.body, { x: width / 2, y: 500 })
+            if (mirror.body.position.y > 360) {
+                Body.setPosition(mirror.body, { x: 200, y: 200 })
+
+            }
+            Body.setPosition(glass.body, { x: width / 2, y: 550 })
         }
     }
 }
+
 
 
 

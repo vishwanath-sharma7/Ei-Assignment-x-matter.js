@@ -13,20 +13,27 @@ class Glass {
     show() {
         const pos = this.body.position
         const angle = this.body.angle
-        fill(50)
+        fill(255, 255, 255, 50)
         push()
         translate(pos.x, pos.y)
         if (dist(this.body.position.x, this.body.position.y, mouseX, mouseY) < 150) {
 
             stroke(25)
             ellipse(0, 0, 300)
+
+            fill(255, 255, 255, 30)
+            stroke(25)
+            ellipse(0, 0, 140)
+
+
         }
         if (dist(this.body.position.x, this.body.position.y, mouseX, mouseY) < 50) {
-            fill(80)
+            fill(255, 255, 255, 70)
             stroke(25)
             ellipse(0, 0, 140)
         }
         noFill()
+        strokeWeight(10)
         stroke(255)
         rotate(angle)
         rectMode(CENTER)
