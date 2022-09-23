@@ -27,7 +27,7 @@ class Glass {
 
 
         }
-        if (dist(this.body.position.x, this.body.position.y, mouseX, mouseY) < 50) {
+        if (dist(this.body.position.x, this.body.position.y, mouseX, mouseY) < 70) {
             fill(255, 255, 255, 70)
             stroke(25)
             ellipse(0, 0, 140)
