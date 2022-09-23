@@ -36,11 +36,5 @@ class Mirror {
         rect(0, 0, this.w, this.h)
         pop()
     }
-
-    // setMovable() {
-    //     this.body.isStatic = false;
-    // }
-
-
 }
 

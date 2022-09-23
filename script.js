@@ -130,7 +130,6 @@ function draw() {
             pop()
         }
 
-
     }
     noStroke();
     strokeWeight(2)
@@ -162,8 +161,6 @@ function mouseDragged() {
         }
     }
 }
-
-
 function mouseReleased() {
     if (mConstraint.body === mirror.body) {
         if (mouseY < 360) {
