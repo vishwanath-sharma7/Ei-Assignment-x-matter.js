@@ -4,7 +4,7 @@ let { Engine, Bodies, Composite, Body } = Matter
 //initialise torch svg
 let img;
 function preload() {
-    img = loadImage("../img/flashlight.svg");
+    img = loadImage("./img/flashlight.svg");
 }
 
 // global variables
