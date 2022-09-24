@@ -1,8 +1,7 @@
 class Glass {
-    constructor(x, y, w, h, fixed) {
-        this.fixed = fixed;
+    constructor(x, y, w, h) {
         let options = {
-            isStatic: this.fixed,
+            isStatic: true,
         }
         this.body = Bodies.rectangle(x, y, w, h, options);
         this.h = h;
@@ -40,10 +39,4 @@ class Glass {
         rect(0, 0, this.w, this.h)
         pop()
     }
-
-    setMovable() {
-        this.body.isStatic = false;
-    }
-
-
 }

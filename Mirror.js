@@ -1,14 +1,6 @@
-class Mirror {
-    constructor(x, y, w, h, fixed) {
-        this.fixed = fixed;
-        let options = {
-            isStatic: this.fixed,
-        }
-        this.body = Bodies.rectangle(x, y, w, h, options);
-        this.h = h;
-        this.w = w;
-        this.body.angle = 0
-        Composite.add(world, this.body)
+class Mirror extends Glass {
+    constructor(x, y, w, h) {
+        super(x, y, w, h)
     }
     show() {
         const pos = this.body.position
